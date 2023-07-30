@@ -48,3 +48,8 @@
         name: git
         state: present
         update_cache: true
+
+    - name: Cloning the e_commerce repository
+      git:
+        repo: 'https://github.com/bicosteve/e_commerceIP2'
+        dest: /home/code/repo
