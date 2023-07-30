@@ -28,6 +28,17 @@
         state: latest
         update_cache: true
 
+    - name: Install Pip3
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Install and upgrade pip
+      pip:
+        name: pip
+        extra_args: --upgrade
+        executable: pip3
+
     - name: Install Docker Module for Python
       pip:
         name: docker
