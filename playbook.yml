@@ -42,3 +42,9 @@
     - name: Install Docker Module for Python
       pip:
         name: docker
+
+    - name: Installing Git
+      apt:
+        name: git
+        state: present
+        update_cache: true
