@@ -2,5 +2,5 @@
 - name: Run Docker Compose
   command: docker compose up -d
   args:
-    chdir: /home/code/repo/e_commerceIP2/
+    chdir: /home/code/repo/e_commerceIP2
   tags: docker-compose
