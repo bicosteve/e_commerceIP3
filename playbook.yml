@@ -53,3 +53,8 @@
       git:
         repo: 'https://github.com/bicosteve/e_commerceIP2'
         dest: /home/code/repo
+
+    - name: Run docker-compose
+      docker-compose:
+        project_src: /home/code/repo/e_commerceIP2
+        state: present
