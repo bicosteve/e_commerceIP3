@@ -9,8 +9,11 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "geerlingguy/ubuntu2004"
   config.vm.hostname = "web"
+  # Port mapping for server 
   config.vm.network "forwarded_port", guest: 5000, host: 5000
+  # Port mapping for client
   config.vm.network "forwarded_port", guest: 3000, host: 3000
+  # Port mapping for mongodb
   config.vm.network "forwarded_port", guest: 27017, host: 27017 
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
