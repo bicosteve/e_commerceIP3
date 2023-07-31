@@ -1,0 +1,7 @@
+---
+- name: Install aptitude package on virtual marchine
+  become: true
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: true
