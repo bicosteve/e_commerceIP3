@@ -5,3 +5,4 @@
     name: aptitude
     state: latest
     update_cache: true
+  tags: aptitude 
