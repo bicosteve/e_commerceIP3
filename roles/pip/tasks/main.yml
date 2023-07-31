@@ -1,15 +1,17 @@
 ---
-- name: Install pip3
-  apt:
-    name: python3-pip
-    state: present
+- name: Install and Upgrade pip3 and python module
+  block:
+    - name: Install pip3
+      apt:
+        name: python3-pip
+        state: present
 
-- name: Install and upgrade pip
-  pip:
-    name: pip
-    extra_args: --upgrade
-    executable: pip3
+    - name: Install and upgrade pip
+      pip:
+        name: pip
+        extra_args: --upgrade
+        executable: pip3
 
-- name: Install Docker module for python
-  pip:
-    name: docker
+    - name: Install Docker module for python
+      pip:
+        name: docker
