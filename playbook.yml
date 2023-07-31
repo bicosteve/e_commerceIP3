@@ -54,7 +54,13 @@
         repo: 'https://github.com/bicosteve/e_commerceIP2'
         dest: /home/code/repo
 
-    - name: Run docker-compose
-      docker-compose:
-        project_src: /home/code/repo/e_commerceIP2
-        state: present
+    # - name: Run docker-compose
+    #   docker-compose:
+    #     project_src: /home/code/repo/e_commerceIP2
+    #     state: present
+
+    - name: Run Docker Compose
+      command: docker compose up -d
+      args:
+        chdir: /home/code/repo/e_commerceIP2/
+      tags: docker-compose
