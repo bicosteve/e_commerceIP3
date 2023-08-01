@@ -33,7 +33,7 @@
 #### 6. Running provisioning remote server
 
     Use vagrant up to provision the server.
-    You can also clone the repo and navigate to the dir in your command line. Run ansible-playbook -i ./inventory/hosts playbook.yml. This will provision the server and start the container.
+    You can also clone the repo and navigate to the dir in your command line. Run ansible-playbook -i ./inventory/hosts playbook.yml --tag docker-compose This will provision the server and start the containers.
 
 #### 7. Vagrantfile
 
