@@ -1,6 +1,9 @@
 ---
 - name: Cloning the e_commerce repository
+  vars:
+    git_repo: https://github.com/bicosteve/e_commerceIP2
+    destination: /home/vagrant/code/e_commerceIP2
   git:
-    repo: 'https://github.com/bicosteve/e_commerceIP2'
-    dest: /home/vagrant/code/e_commerceIP2
-  tags: clone-repo 
+    repo: '{{ git_repo }}'
+    dest: '{{ destination }}'
+  tags: clone-repo

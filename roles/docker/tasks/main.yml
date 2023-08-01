@@ -1,17 +1,24 @@
 ---
 - name: Download, Add Docker Repository, and Install Docker-CE
   become: true
+
+  vars:
+    docker_url: https://download.docker.com/linux/ubuntu/gpg
+    docker_repository: deb https://download.docker.com/linux/ubuntu focal stable
+    compose_url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
+    compose_dir: /usr/bin/docker-compose
+
   block:
     - name: Download Docker
       apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
+        url: '{{ docker_url }}'
         state: present
       tags: docker-download
 
     - name: Add Docker Repository
       become: true
       apt_repository:
-        repo: deb deb https://download.docker.com/linux/ubuntu focal stable
+        repo: '{{ docker_repository }}'
         state: present
       tags: docker-repository
 
@@ -20,11 +27,11 @@
         name: docker-ce
         state: latest
         update_cache: true
-      tags: docker-ce 
+      tags: docker-ce
 
-    - name: Install docker - compose 
+    - name: Install docker - compose
       get_url:
-        url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
-        dest: /usr/bin/docker-compose
+        url: '{{ compose_url }}'
+        dest: '{{ compose_dir }}'
         mode: '755'
       tags: install-compose

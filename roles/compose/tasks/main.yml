@@ -1,6 +1,10 @@
 ---
 - name: Run Docker Compose
   command: docker compose up -d
+
+  vars:
+    code_location: '/home/vagrant/code/'
+
   args:
-    chdir: /home/vagrant/code/
+    chdir: '{{ code_location }}'
   tags: docker-compose
