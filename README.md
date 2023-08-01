@@ -28,6 +28,7 @@
     1. Hosts is set to all for this project but it can be grouped according to the hosts set on the hosts file.
     2. Remote_User is set to vagrant to give access to our virtual marchine and perfome functions there as the root user.
     3. Become_user is set to root which give the vagrant user all the root previledges.
+    4. The playbook tasks have been added to their various roles therefore breaking the playbook in parts. Each task has been listed on the playbook with its role.
 
 #### 6. Running provisioning remote server
 
@@ -37,3 +38,12 @@
 #### 7. Vagrantfile
 
      The file has port mappings for accessibility outside the virtual machine where the server is 5000, client is 3000 and the mongodb is 27017. To access the client, run http://localhost:3000 on your browser to launch client application.  You can also access the backend service by runninng http://localhost:5000/api/products on Postman or Insomnia to access the API.
+
+#### 8. Running the containers
+
+     To run the containers with ansible playbook, we will use 'ansible-playbook -1 ./inventory/hosts playbook.yml --tags docker-compose'
+     I have added the --tags flag to avoid running other tasks but just the docker-compose task which has a tag name of 'docker-compose'
+
+#### 9. Localhost Running Version of the app
+
+    To view how the application is running on our virtual marchine, this is the link of the video https://www.awesomescreenshot.com/video/19573677?key=1705827d63cc8ccf054231b0d9d414d2
